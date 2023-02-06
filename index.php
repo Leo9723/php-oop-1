@@ -19,6 +19,11 @@ class film
         $this->rilascio = $_rilascio;
         $this->saga = $_saga;
     }
+
+    public function getMovieDetails()
+    {
+        return $this->titolo . "-" . $this->rilascio;
+    }
 }
 
 class lunghezza
@@ -32,8 +37,6 @@ class lunghezza
         $this->minuti = $_minuti;
     }
 }
-
-//creare metodo che con un flag ti mette film true se ha piu films oppure film false se è autoconclusivo in $tipologia.
 
 
 
@@ -101,6 +104,15 @@ file_put_contents('films.json', json_encode($filmsArray));
 
 <body>
     <div id="app" class="container">
+        <div>
+            <?php
+            echo $film_1->getMovieDetails();
+            echo '<br>';
+            echo $film_2->getMovieDetails();
+            echo '<br>';
+            echo $film_3->getMovieDetails();
+            ?>
+        </div>
         <div class="row">
             <div class="col" v-for="(film, index) in filmList">
                 <div class="poster">
